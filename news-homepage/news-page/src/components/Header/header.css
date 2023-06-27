@@ -33,19 +33,52 @@
 
 .mobile-menu {
   display: none;
+  z-index: 100;
 }
 
 .drawer-menu {
   display: none;
-  min-height: 100vh;
-  width: 70%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  z-index: 2;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
 }
 
-.drawer-menu li {
-  padding: 0.7rem;
+.drawer-menu.open {
+  transform: translateX(0);
+}
+
+.drawer-menu .mobile-menu-links {
+  padding: 1rem;
+  margin-top: 5rem;
+  gap: 40px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.drawer-menu .mobile-menu-links a {
+  color: hsl(236, 13%, 42%);
+  transition: all 0.3s ease-in-out;
+}
+
+.drawer-menu .mobile-menu-links a:hover {
+  color: hsl(35, 77%, 62%);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 /*the menu shows only on mobile screen 600px and less and there must be an animation on open and close*/
@@ -72,7 +105,7 @@
   }
 
   .drawer-menu {
-    display: block;
-    position: abosolute;
+    display: flex;
+    flex-direction: column;
   }
 }
