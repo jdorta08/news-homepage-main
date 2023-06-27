@@ -1,21 +1,17 @@
 import React from "react";
 import "./header.css";
+import { useState } from "react";
 import logo from "../../assets/images/logo.svg";
 import mobileMenu from "../../assets/images/icon-menu.svg";
 import mobileMenuClose from "../../assets/images/icon-menu-close.svg";
 
 function Header() {
-  const mobileMenuOpen = () => {
-    const drawerMenu = document.querySelector(".drawer-menu");
-    const mobileMenuIcon = document.querySelector(".mobile-menu img");
-    const mobileMenu = document.querySelector(".mobile-menu");
+  const [menuStatus, setMenuStatus] = React.useState(false);
 
-    mobileMenu.onClick = function () {
-      drawerMenu.classList.toggle("open");
-      const isOpen = drawerMenu.classList.contains("open");
-      mobileMenuIcon.classList = isOpen ? mobileMenuClose : mobileMenu;
-    };
-  };
+  function handleMenuStatus() {
+    setMenuStatus(!menuStatus);
+  }
+  let drawerMenu = menuStatus ? mobileMenuClose : mobileMenu;
 
   return (
     <div>
@@ -41,8 +37,8 @@ function Header() {
               <a href="#">Categories</a>
             </li>
           </ul>
-          <div className="mobile-menu">
-            <img src={mobileMenu} alt="mobile-menu" />
+          <div className="mobile-menu" onClick={handleMenuStatus}>
+            <img src={drawerMenu} alt="mobile-menu" />
           </div>
         </div>
         <div className="drawer-menu">

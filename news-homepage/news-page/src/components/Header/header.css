@@ -21,12 +21,14 @@
   justify-content: space-between;
 }
 
-.nav-menu ul li {
+.nav-menu ul li a {
+  color: hsl(236, 13%, 42%);
   justify-content: space-between;
 }
 
 .nav-menu ul li a:hover {
   color: hsl(35, 77%, 62%);
+  transition: all 0.3s ease-in-out;
 }
 
 .mobile-menu {
@@ -35,9 +37,8 @@
 
 .drawer-menu {
   display: none;
-  z-index: 1;
   min-height: 100vh;
-  width: 100%;
+  width: 70%;
 }
 
 .drawer-menu li {
@@ -68,5 +69,10 @@
   .mobile-menu {
     display: block;
     cursor: pointer;
+  }
+
+  .drawer-menu {
+    display: block;
+    position: abosolute;
   }
 }
