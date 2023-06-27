@@ -41,22 +41,28 @@ function Header() {
             <img src={drawerMenu} alt="mobile-menu" />
           </div>
         </div>
-        <div className="drawer-menu">
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">New</a>
-          </li>
-          <li>
-            <a href="#">Popular</a>
-          </li>
-          <li>
-            <a href="#">Trending</a>
-          </li>
-          <li>
-            <a href="#">Categories</a>
-          </li>
+        {menuStatus && (
+          <div className="overlay" onClick={handleMenuStatus}></div>
+        )}
+
+        <div className={`drawer-menu ${menuStatus ? "open" : ""}`}>
+          <div className="mobile-menu-links" onClick={handleMenuStatus}>
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#">New</a>
+            </li>
+            <li>
+              <a href="#">Popular</a>
+            </li>
+            <li>
+              <a href="#">Trending</a>
+            </li>
+            <li>
+              <a href="#">Categories</a>
+            </li>
+          </div>
         </div>
       </div>
     </div>
